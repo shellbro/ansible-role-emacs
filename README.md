@@ -13,7 +13,7 @@ None
 Role Variables
 --------------
 
-- version - version of Emacs to be installed (required)
+* version - version of Emacs to be installed (required)
 
 Dependencies
 ------------
