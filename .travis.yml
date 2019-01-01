@@ -2,15 +2,17 @@
 
 sudo: required
 
-env:
-  - distribution: centos
-    version: 7
+language: python
 
 services:
   - docker
 
 before_install:
-  - 'sudo docker pull ${distribution}:${version}'
+  - sudo apt-get -qq update
+
+install:
+  - pip install molecule
+  - pip install docker
 
 script:
-  - container_id=$(mktemp)
+  - molecule test
