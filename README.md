@@ -7,7 +7,7 @@ Ansible role for installing GNU Emacs from sources on CentOS 7.
 
 This is useful if Emacs version newer than available in repository is needed. As
 for this writing, the latest version of Emacs available in *updates* repo is
-24.3.
+*24.3*.
 
 Requirements
 ------------
