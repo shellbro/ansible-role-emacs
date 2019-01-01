@@ -18,7 +18,7 @@ Role Variables
 --------------
 
 * src_url - URL to Emacs source code archive (required)
-* src_path - directory on the system to store downloaded source code (by default
+* src_dir - directory on the system to store downloaded source code (by default
 `/root/src`)
 
 Dependencies
@@ -32,7 +32,7 @@ Example Playbook
     - hosts: servers
       roles:
         - shellbro.emacs
-          src_url: http://ftp.task.gda.pl/pub/gnu/emacs/emacs-26.1.tar.xz
+          src_dir: http://ftp.task.gda.pl/pub/gnu/emacs/emacs-26.1.tar.xz
 
 License
 -------
