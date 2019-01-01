@@ -9,6 +9,7 @@
   stat:
     path: '{{ src_dir }}'
   register: src_dir_stat
+  become: true
 
 - name: make sure directory to store Emacs source code exists
   file:
