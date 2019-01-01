@@ -32,7 +32,7 @@ Example Playbook
     - hosts: servers
       roles:
         - shellbro.emacs
-          src_dir: http://ftp.task.gda.pl/pub/gnu/emacs/emacs-26.1.tar.xz
+          src_url: http://ftp.task.gda.pl/pub/gnu/emacs/emacs-26.1.tar.xz
 
 License
 -------
