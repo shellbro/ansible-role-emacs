@@ -5,10 +5,15 @@
   changed_when: false
   register: whoami
 
+- name: install Development Tools
+  yum:
+    name: '@Development Tools'
+  become: true
+
 - name: check if difrectory to store Emacs source code exists
   stat:
-    path: '{{ src_dir }}'
-  register: src_dir_stat
+    path: '{{ source_dir }}'
+  register: stat_source_dir
   become: true
 
 - name: make sure directory to store Emacs source code exists
@@ -16,16 +21,41 @@
     group: '{{ whoami.stdout }}'
     mode: 0775
     owner: '{{ whoami.stdout }}'
-    path: '{{ src_dir }}'
+    path: '{{ source_dir }}'
     state: directory
   become: true
-  when: not src_dir_stat.stat.exists
+  when: not stat_source_dir.stat.exists
 
 - name: download source code
   unarchive:
-    dest: '{{ src_dir }}'
+    dest: '{{ source_dir }}'
     group: '{{ whoami.stdout }}'
+    list_files: true
     owner: '{{ whoami.stdout }}'
-    src: '{{ src_url }}'
     remote_src: true
+    src: '{{ source_url }}'
+  become: true
+  notify: configure
+  register: unarchive_source
+
+- name: create .emacs.d directories
+  tags: notest
+  file:
+    group: '{{ item }}'
+    mode: 0700
+    owner: '{{ item }}'
+    path: /home/{{ item }}/.emacs.d
+    state: directory
+  with_items: '{{ users }}'
+  become: true
+
+- name: download config file
+  tags: notest
+  get_url:
+    dest: /home/{{ item }}/.emacs.d
+    group: '{{ item }}'
+    mode: 0664
+    owner: '{{ item }}'
+    url: '{{ config_url }}'
+  with_items: '{{ users }}'
   become: true
