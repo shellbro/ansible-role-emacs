@@ -3,7 +3,4 @@
   hosts: all
   roles:
     - role: ansible-role-emacs
-      source_url: https://ftp.gnu.org/pub/gnu/emacs/emacs-26.1.tar.gz
-      config_url: https://raw.githubusercontent.com/shellbro/dotfiles/master/.emacs.d/init.el
-      users:
-        - shellbro
+      version: 26.1

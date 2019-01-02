@@ -3,16 +3,16 @@
 - name: configure
   command: ./configure
   args:
-    chdir: '{{ source_dir }}/{{ unarchive_source.files[0] }}'
+    chdir: "{{ source_dir }}/emacs-{{ version }}"
   notify: make
 
 - name: make
   make:
-    chdir: '{{ source_dir }}/{{ unarchive_source.files[0] }}'
+    chdir: "{{ source_dir }}/emacs-{{ version }}"
   notify: make install
 
 - name: make install
   make:
-    chdir: '{{ source_dir }}/{{ unarchive_source.files[0] }}'
+    chdir: "{{ source_dir }}/emacs-{{ version }}"
     target: install
   become: true

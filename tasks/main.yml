@@ -7,7 +7,7 @@
 
 - name: install Development Tools
   yum:
-    name: '@Development Tools'
+    name: "@Development Tools"
   become: true
 
 - name: install dependencies
@@ -19,50 +19,27 @@
 
 - name: check if difrectory to store Emacs source code exists
   stat:
-    path: '{{ source_dir }}'
+    path: "{{ source_dir }}"
   become: true
   register: stat_source_dir
 
 - name: make sure directory to store Emacs source code exists
   file:
-    group: '{{ whoami.stdout }}'
+    group: "{{ whoami.stdout }}"
     mode: 0775
-    owner: '{{ whoami.stdout }}'
-    path: '{{ source_dir }}'
+    owner: "{{ whoami.stdout }}"
+    path: "{{ source_dir }}"
     state: directory
   become: true
   when: not stat_source_dir.stat.exists
 
 - name: download source code
   unarchive:
-    dest: '{{ source_dir }}'
-    group: '{{ whoami.stdout }}'
-    list_files: true
-    owner: '{{ whoami.stdout }}'
+    creates: "{{ source_dir }}/emacs-{{ version }}"
+    dest: "{{ source_dir }}"
+    group: "{{ whoami.stdout }}"
+    owner: "{{ whoami.stdout }}"
     remote_src: true
-    src: '{{ source_url }}'
+    src: https://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz
   become: true
   notify: configure
-  register: unarchive_source
-
-- name: create .emacs.d directories
-  tags: notest
-  file:
-    group: '{{ item }}'
-    mode: 0700
-    owner: '{{ item }}'
-    path: /home/{{ item }}/.emacs.d
-    state: directory
-  with_items: '{{ users }}'
-  become: true
-
-- name: download config file
-  tags: notest
-  get_url:
-    dest: /home/{{ item }}/.emacs.d
-    group: '{{ item }}'
-    mode: 0664
-    owner: '{{ item }}'
-    url: '{{ config_url }}'
-  with_items: '{{ users }}'
-  become: true
