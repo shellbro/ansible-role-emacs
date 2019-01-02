@@ -8,6 +8,8 @@ lint:
 platforms:
   - name: instance
     image: centos:7
+    env:
+      CANNOT_DUMP: 'yes'
 provisioner:
   name: ansible
   lint:
