@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ansible-role-emacs
+  - name: instance
     image: centos:7
     env:
       CANNOT_DUMP: "yes"
