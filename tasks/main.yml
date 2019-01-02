@@ -10,11 +10,18 @@
     name: '@Development Tools'
   become: true
 
+- name: install dependencies
+  yum:
+    name:
+      - gnutls-devel
+      - ncurses-devel
+  become: true
+
 - name: check if difrectory to store Emacs source code exists
   stat:
     path: '{{ source_dir }}'
-  register: stat_source_dir
   become: true
+  register: stat_source_dir
 
 - name: make sure directory to store Emacs source code exists
   file:

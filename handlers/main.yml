@@ -7,11 +7,13 @@
   notify: make
 
 - name: make
+  tag: notest
   make:
     chdir: '{{ source_dir }}/{{ unarchive_source.files[0] }}'
   notify: make install
 
 - name: make install
+  tag: notest
   make:
     chdir: '{{ source_dir }}/{{ unarchive_source.files[0] }}'
     target: install
