@@ -10,10 +10,15 @@
     name: "@Development Tools"
   become: true
 
-- name: install dependencies
+- name: install build dependencies
   yum:
     name:
+      - giflib-devel
       - gnutls-devel
+      - gtk3-devel
+      - libjpeg-turbo-devel
+      - libtiff-devel
+      - libXpm-devel
       - ncurses-devel
   become: true
 
