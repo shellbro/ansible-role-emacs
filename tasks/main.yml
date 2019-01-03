@@ -17,7 +17,7 @@
       - ncurses-devel
   become: true
 
-- name: check if difrectory to store Emacs source code exists
+- name: check if directory to store Emacs source code exists
   stat:
     path: "{{ source_dir }}"
   become: true
