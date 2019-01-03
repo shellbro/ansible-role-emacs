@@ -19,7 +19,7 @@ Role Variables
 
 * version - version of Emacs to be installed (required)
 * source_dir - directory on the system to store downloaded source code (by
-default `/root/src`)
+default `/usr/local/src`)
 * config_url - URL to Emacs config file (required)
 * config_dir - directory on the system to store downloaded config file
 (required)

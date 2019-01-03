@@ -1,4 +1,4 @@
 ---
 
-source_dir: /root/src
+source_dir: /usr/local/src
 config_group: "{{ config_owner }}"
