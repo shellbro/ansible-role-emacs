@@ -40,7 +40,7 @@
     group: "{{ whoami.stdout }}"
     owner: "{{ whoami.stdout }}"
     remote_src: true
-    src: https://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz
+    src: https://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.xz
   become: true
   notify: configure
 
