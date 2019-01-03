@@ -4,3 +4,6 @@
   roles:
     - role: ansible-role-emacs
       version: 26.1
+      config_url: https://raw.githubusercontent.com/shellbro/dotfiles/master/.emacs.d/init.el
+      config_dir: /root/.emacs.d
+      config_owner: root

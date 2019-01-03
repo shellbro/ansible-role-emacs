@@ -1,3 +1,4 @@
 ---
 
 source_dir: /root/src
+config_group: "{{ config_owner }}"

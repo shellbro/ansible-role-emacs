@@ -43,3 +43,21 @@
     src: https://ftp.gnu.org/pub/gnu/emacs/emacs-{{ version }}.tar.gz
   become: true
   notify: configure
+
+- name: create directory for Emacs config file
+  file:
+    group: "{{ config_group }}"
+    mode: 0700
+    owner: "{{ config_owner }}"
+    path: "{{ config_dir }}"
+    state: directory
+  become: true
+
+- name: download config file
+  get_url:
+    dest: "{{ config_dir }}"
+    group: "{{ config_group }}"
+    mode: 0664
+    owner: "{{ config_owner }}"
+    url: "{{ config_url }}"
+  become: true

@@ -20,6 +20,12 @@ Role Variables
 * version - version of Emacs to be installed (required)
 * source_dir - directory on the system to store downloaded source code (by
 default `/root/src`)
+* config_url - URL to Emacs config file (required)
+* config_dir - directory on the system to store downloaded config file
+(required)
+* config_owner - user owner of the config file (required)
+* config_group - group owner of the config file (if not specified, by default
+the same as user owner)
 
 Dependencies
 ------------
@@ -31,8 +37,11 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - shellbro.emacs
+        - role: shellbro.emacs
           version: 26.1
+          config_url: https://raw.githubusercontent.com/shellbro/dotfiles/master/.emacs.d/init.el
+          config_dir: /home/shellbro/.emacs.d
+          config_owner: shellbro
 
 License
 -------
