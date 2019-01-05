@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: ansible-role-emacs
     image: shellbro/centos-molecule
     pre_build_image: true
     env:
