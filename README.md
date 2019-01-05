@@ -40,8 +40,8 @@ Example Playbook
         - role: shellbro.emacs
           version: 26.1
           config_url: https://raw.githubusercontent.com/shellbro/dotfiles/master/.emacs.d/init.el
-          config_dir: /home/shellbro/.emacs.d
-          config_owner: shellbro
+          config_dir: /home/user/.emacs.d
+          config_owner: user
 
 License
 -------

@@ -7,7 +7,8 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: centos:7
+    image: shellbro/centos-molecule
+    pre_build_image: true
     env:
       CANNOT_DUMP: "yes"
 provisioner:
