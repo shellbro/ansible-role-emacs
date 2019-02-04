@@ -18,14 +18,15 @@ Role Variables
 --------------
 
 * version - version of Emacs to be installed (required)
-* source_dir - directory on the system to store downloaded source code (by
-default `/usr/local/src`)
+* source_dir - directory on the system to store downloaded source code, it will
+be created if does not exist (by default `/usr/local/src`)
+
 * config_url - URL to Emacs config file (required)
-* config_dir - directory on the system to store downloaded config file
-(required)
-* config_owner - user owner of the config file (required)
-* config_group - group owner of the config file (if not specified, by default
-the same as user owner)
+* config_dir - directory on the system to store downloaded config file, it will
+be created if does not exist (required)
+* config_owner - owner of the config dir and config file (required)
+* config_group - group of the config dir and config file (if not specified, by
+default the same as `config_owner`)
 
 Dependencies
 ------------
