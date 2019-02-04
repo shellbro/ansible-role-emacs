@@ -24,8 +24,8 @@ be created if does not exist (by default `/usr/local/src`)
 * config_url - URL to Emacs config file (required)
 * config_dir - directory on the system to store downloaded config file, it will
 be created if does not exist (required)
-* config_owner - owner of the config dir and config file (required)
-* config_group - group of the config dir and config file (if not specified, by
+* config_owner - owner of config dir and config file (required)
+* config_group - group of config dir and config file (if not specified, by
 default the same as `config_owner`)
 
 Dependencies
