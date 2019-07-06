@@ -3,6 +3,7 @@
 - name: run whoami
   command: whoami
   changed_when: false
+  check_mode: false
   register: whoami
 
 - name: install Development Tools
